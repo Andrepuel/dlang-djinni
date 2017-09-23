@@ -1,0 +1,10 @@
+Init = interface +c {
+	static init(): Init;
+
+	version(): string;
+	test(): Other;
+}
+
+Other = record {
+	a: string;
+}

@@ -1,0 +1,6 @@
+/djinni
+/.dub
+/.vscode
+/cpp_helpers.o
+/libdjinnipoc.a
+/cpp_main

@@ -1,0 +1,16 @@
+{
+	"name": "djinnipoc",
+	"authors": [
+		"Andre Puel"
+	],
+	"description": "A minimal D application.",
+	"copyright": "Copyright © 2017, Andre Puel",
+	"license": "proprietary",
+	"targetType": "library",
+	"sourceFiles": [
+		"$PACKAGE_DIR/cpp_helpers.o"
+	],
+	"preBuildCommands": [
+		"make cpp_helpers.o"
+	]
+}
