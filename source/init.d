@@ -4,9 +4,19 @@ struct Other {
 	cpp_string a;
 }
 
+mixin template CppDestructorsOffset() {
+	void __destruct1() {}
+	void __destruct2() {}
+}
+
+extern (C++) class Callback {
+	mixin CppDestructorsOffset;
+
+	abstract cpp_string str();
+}
+
 extern (C++) class Init {
-	void destroy1() {}
-	void destroy2() {}
+	mixin CppDestructorsOffset;
 
 	cpp_string version_() {
 		return cpp_string("0.0.0");
@@ -14,6 +24,11 @@ extern (C++) class Init {
 
 	Other test() {
 		return Other(cpp_string("test"));
+	}
+
+	void callme(ref cpp_shared_ptr!Callback cb) {
+		import std.stdio;
+		writeln([cb.ptr.str.release]);
 	}
 }
 

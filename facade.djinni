@@ -3,6 +3,11 @@ Init = interface +c {
 
 	version(): string;
 	test(): Other;
+	callme(cb: Callback);
+}
+
+Callback = interface {
+	str(): string;
 }
 
 Other = record {

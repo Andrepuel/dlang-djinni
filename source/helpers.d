@@ -45,6 +45,12 @@ struct cpp_string {
 		ulong len;
 		return string_value(&this, &len)[0..len];
 	}
+
+	const(char)[] release() {
+		auto r = str().dup;
+		deinit();
+		return r;
+	}
 }
 
 shared static this() {

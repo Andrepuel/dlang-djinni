@@ -20,4 +20,4 @@ cpp_main: source/main.cpp libdjinnipoc.a
 	g++ $^ -o $@ -std=c++11 -lphobos2 -L/usr/local/lib
 
 swift_main: source/main.swift libdjinnipocobjc.a libdjinnipoc.a
-	swiftc -import-objc-header djinni/Init.h $^ -lc++ libdjinnipoc.a -lphobos2 -L/usr/local/lib -o $@
+	swiftc -import-objc-header source/objc_header.h $^ -lc++ libdjinnipoc.a -lphobos2 -L/usr/local/lib -o $@
