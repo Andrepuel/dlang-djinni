@@ -3,4 +3,7 @@
 /.vscode
 /cpp_helpers.o
 /libdjinnipoc.a
+/libdjinnipocobjc.a
 /cpp_main
+/swift_main
+/objc_build
