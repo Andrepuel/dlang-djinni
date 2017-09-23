@@ -37,9 +37,9 @@ void string_deinit(std::string* self) {
 	self->~string();
 }
 
-std::shared_ptr<Init> Init_init_instantiate();
+std::shared_ptr<cpp_Init> Init_init_instantiate();
 }
 
-std::shared_ptr<Init> Init::init() {
+std::shared_ptr<cpp_Init> cpp_Init::init() {
 	return Init_init_instantiate();
 }

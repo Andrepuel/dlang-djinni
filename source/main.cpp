@@ -3,7 +3,7 @@
 #include "../djinni/Other.hpp"
 
 int main() {
-	auto a = Init::init();
+	auto a = cpp_Init::init();
 	std::cout << a->version() << std::endl;
 	auto p = a->test();
 	std::cout << p.a << std::endl;

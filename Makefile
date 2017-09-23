@@ -1,7 +1,8 @@
+djinni=$(DJINNI_DIR)/src/run
 all: cpp_main
 
 djinni/Init.hpp: facade.djinni
-	djinni --idl $^ --cpp-out djinni --objc-out djinni --objcpp-out djinni
+	$(djinni) --idl $^ --cpp-out djinni --objc-out djinni --objcpp-out djinni --ident-cpp-type cpp_FooBar
 
 cpp_helpers.o: source/cpp_helpers.cpp
 	g++ $^ -c -o $@ -std=c++11
