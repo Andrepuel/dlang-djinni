@@ -1,7 +1,7 @@
 #include <iostream>
-#include "../djinni/Init.hpp"
-#include "../djinni/Other.hpp"
-#include "../djinni/Callback.hpp"
+#include "../djinni/cpp_Init.hpp"
+#include "../djinni/cpp_Other.hpp"
+#include "../djinni/cpp_Callback.hpp"
 
 class Implement : public cpp_Callback {
 	virtual std::string str() override {

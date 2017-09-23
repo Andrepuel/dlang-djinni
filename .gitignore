@@ -2,8 +2,8 @@
 /.dub
 /.vscode
 /cpp_helpers.o
-/libdjinnipoc.a
-/libdjinnipocobjc.a
+/libdjinnipoc*
 /cpp_main
 /swift_main
+/source/*.class
 /objc_build
