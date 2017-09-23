@@ -6,7 +6,7 @@ djinni/Init.hpp: facade.djinni
 cpp_helpers.o: source/cpp_helpers.cpp
 	g++ $^ -c -o $@ -std=c++11
 
-libdjinnipoc.a: source/*.d
+libdjinnipoc.a: source/*.d cpp_helpers.o
 	dub build
 
 cpp_main: source/main.cpp libdjinnipoc.a

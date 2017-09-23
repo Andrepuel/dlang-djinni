@@ -1,5 +1,6 @@
 #include <string>
 #include <memory>
+#include "../djinni/Init.hpp"
 
 extern "C" {
 size_t shared_ptr_size() {
@@ -35,4 +36,10 @@ void string_deinit(std::string* self) {
 	using std::string;
 	self->~string();
 }
+
+std::shared_ptr<Init> Init_init_instantiate();
+}
+
+std::shared_ptr<Init> Init::init() {
+	return Init_init_instantiate();
 }
