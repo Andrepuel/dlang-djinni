@@ -3,7 +3,7 @@ djinni=$(DJINNI_DIR)/src/run
 all: cpp_main swift_main
 
 djinni/Init.hpp: facade.djinni
-	$(djinni) --idl $^ --cpp-out djinni --objc-out djinni --objcpp-out djinni --ident-cpp-type cpp_FooBar
+	$(djinni) --idl $^ --cpp-out djinni --objc-out djinni --objcpp-out djinni --ident-cpp-type cpp_FooBar --objc-swift-bridging-header objc_header
 
 cpp_helpers.o: source/cpp_helpers.cpp
 	g++ $^ -c -o $@ -std=c++11
@@ -19,5 +19,5 @@ libdjinnipocobjc.a: djinni/Init.hpp
 cpp_main: source/main.cpp libdjinnipoc.a
 	g++ $^ -o $@ -std=c++11 -lphobos2 -L/usr/local/lib
 
-swift_main: source/main.swift libdjinnipocobjc.a libdjinnipoc.a
-	swiftc -import-objc-header source/objc_header.h $^ -lc++ libdjinnipoc.a -lphobos2 -L/usr/local/lib -o $@
+swift_main: source/main.swift libdjinnipocobjc.a libdjinnipoc.a djinni/Init.hpp
+	swiftc -import-objc-header djinni/objc_header.h $^ -lc++ libdjinnipoc.a -lphobos2 -L/usr/local/lib -o $@
